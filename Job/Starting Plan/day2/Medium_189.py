@@ -28,6 +28,7 @@ def rotate2(nums, k):
     return None
 
 
+# 数组翻转
 def rotate3(nums, k):
     reverse(nums, 0, len(nums) - 1)
     reverse(nums, 0, k % len(nums) - 1)
@@ -41,8 +42,6 @@ def reverse(nums, start, end):
         nums[start + i] = temp
     return None
 
-
-# 数组翻转
 
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5, 6, 7]

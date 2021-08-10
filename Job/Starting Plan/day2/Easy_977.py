@@ -14,10 +14,10 @@ def sortedSquares2(nums):
     j = n - 1
     for k in range(n):
         if abs(nums[i]) > abs(nums[j]):
-            ans[n-1-k] = nums[i] * nums[i]
+            ans[n - 1 - k] = nums[i] * nums[i]
             i += 1
         else:
-            ans[n-1-k] = nums[j] * nums[j]
+            ans[n - 1 - k] = nums[j] * nums[j]
             j -= 1
     return ans
 

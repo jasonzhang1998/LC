@@ -22,6 +22,7 @@ def minDistance(word1, word2):
     return dp[m][n]
 
 
+# 滚动数组思想进行空间优化
 def minDistance2(word1, word2):
     m = len(word1)
     n = len(word2)

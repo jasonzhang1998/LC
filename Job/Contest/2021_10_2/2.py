@@ -1,3 +1,6 @@
+# 连接后等于目标字符串的字符串对
+
+
 from typing import List
 
 
@@ -11,7 +14,6 @@ class Solution:
                 if nums[i] + nums[j] == target:
                     count += 1
         return count
-
 
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 # 两个链表的第一个公共节点
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):

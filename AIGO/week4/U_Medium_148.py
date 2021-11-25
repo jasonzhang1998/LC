@@ -26,7 +26,44 @@ def sortList(head):
 
 # 自顶向下归并排序
 def sortList2(head):
-    return
+    # 合并两个有序链表
+    def merge(node1, node2):
+        head = ListNode()
+        dummy = head
+        while node1 and node2:
+            if node1.val < node2.val:
+                dummy.next = node1
+                node1 = node1.next
+            else:
+                dummy.next = node2
+                node2 = node2.next
+            dummy = dummy.next
+        if node1:
+            dummy.next = node1
+        elif node2:
+            dummy.next = node2
+        return head.next
+
+    # 递归地切分链表
+    def sortFunc(node):
+        if not node or not node.next:
+            return node
+
+        fast = slow = node
+        fast = fast.next.next
+        while fast:
+            if fast.next:
+                fast = fast.next.next
+            else:
+                break
+            slow = slow.next
+        node1 = slow.next
+        slow.next = None
+        left = sortFunc(node)
+        right = sortFunc(node1)
+        return merge(left, right)
+
+    return sortFunc(head)
 
 
 if __name__ == '__main__':
@@ -40,7 +77,6 @@ if __name__ == '__main__':
             dummy.next = ListNode(nums[i])
             dummy = dummy.next
 
-
     # 头插法，新结点每次插到原链表头结点前面
     # for i in range(len(nums)):
     #     if i == 0:
@@ -50,9 +86,7 @@ if __name__ == '__main__':
     #         p.next = head
     #         head = p
 
-
-    head = sortList(head)
-
+    head = sortList2(head)
 
     while head:
         print(head.val, end=" ")

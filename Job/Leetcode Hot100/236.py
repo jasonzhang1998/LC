@@ -10,27 +10,26 @@ class TreeNode:
 
 
 class Solution:
-    # 暴力递归，会超时，包含太多重复计算
-    # isP函数判断root是不是node的祖先节点，commonP函数判断是不是公共祖先节点
-    # 如果一个节点是最近公共祖先节点，则其左右子节点都不是最近公共祖先节点
-    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
-        def isP(root, node) -> bool:
-            if not root:
+    # 自底向上地寻找两个节点的公共祖先
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        # 判断一个节点是不是另一个节点的祖先
+        def isAncestor(node1, node2):
+            if not node1:
                 return False
-            if root.val == node.val:
+            if node1 == node2:
                 return True
-            return isP(root.left, node) or isP(root.right, node)
+            return isAncestor(node1.left, node2) or isAncestor(node1.right, node2)
 
-        def commonP(root, p, q):
-            return isP(root, p) and isP(root, q)
-
-        while root:
-            if not commonP(root.left, p, q) and not commonP(root.right, p, q):
-                return root
-            elif commonP(root.left, p, q):
-                root = root.left
-            else:
-                root = root.right
+        if not root:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        if left:
+            return left
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if right:
+            return right
+        if isAncestor(root, p) and isAncestor(root, q):
+            return root
 
     # 自底向上递归,dfs搜索。
     # 深搜去找p，q节点，如果没找到就返回空，如果找到了则根据最近公共祖先的定义返回节点
@@ -89,5 +88,5 @@ if __name__ == '__main__':
     root.right = TreeNode(1)
     root.right.left = TreeNode(0)
     root.right.right = TreeNode(8)
-    node = Solution().lowestCommonAncestor2(root, root.left, root.right)
+    node = Solution().lowestCommonAncestor3(root, root.left, root.right)
     print(node.val)

@@ -10,7 +10,7 @@ class TreeNode(object):
 
 
 class Codec:
-
+    # 将树编码为层序遍历序列，需编码空节点
     def serialize(self, root):
         """Encodes a tree to a single string.
 

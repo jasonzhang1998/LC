@@ -32,6 +32,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s = 'ab'
-    p = 'c*a*b*'
+    s = 'abcd'
+    p = 'd*'
     print(Solution().isMatch(s, p))

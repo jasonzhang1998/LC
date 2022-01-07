@@ -37,7 +37,7 @@ class Solution:
     # 通过二分查找，每次排除约k/2的元素
     def findMedianSortedArrays2(self, nums1: List[int], nums2: List[int]) -> float:
         def getKthElement(k):
-            # index表示每次比较前，两个数组的头部元素的索引，初始时为0
+            # index表示每次比较前两个数组的头部元素的索引，初始时为0
             index1, index2 = 0, 0
             while True:
                 # 数组nums1已经遍历完了，还没有找到

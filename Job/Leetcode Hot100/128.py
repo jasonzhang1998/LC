@@ -27,13 +27,12 @@ class Solution:
         if not nums:
             return 0
         nums = set(nums)
-        dic = collections.Counter(nums)
         ans = 1
         for num in nums:
-            if num - 1 in dic:
+            if num - 1 in nums:
                 continue
             i = 1
-            while num + i in dic:
+            while num + i in nums:
                 i += 1
             ans = max(ans, i)
         return ans

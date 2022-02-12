@@ -5,12 +5,10 @@ class RandomList:
         self.random = random
 
 
-
-
 class Solution:
     def copyList(self, head):
         dic = {}
-        node =head
+        node = head
         while head:
             dic[head] = RandomList(head.val)
             head = head.next
@@ -21,5 +19,8 @@ class Solution:
         return dic[node]
 
 
-
-
+if __name__ == '__main__':
+    print('hello')
+    print('hello')
+    print('hello')
+    print('hello')

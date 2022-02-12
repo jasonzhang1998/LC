@@ -22,5 +22,3 @@ class Solution:
 if __name__ == '__main__':
     print('hello')
     print('proxy')
-    print('proxy')
-    print('proxy')

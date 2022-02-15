@@ -23,9 +23,21 @@ class Solution:
             cur = head.next
         return dummy.next
 
+    # 递归版本的反转链表
+    def reverseList2(self, head: ListNode) -> ListNode:
+        def helpReverse(head):
+            if not head or not head.next:
+                return head, head
+            new_head, tail = helpReverse(head.next)
+            tail.next = head
+            head.next = None
+            return new_head, head
+
+        return helpReverse(head)[0]
+
 
 if __name__ == '__main__':
-    nodes = [1]
+    nodes = [1, 2, 3]
     for i in range(len(nodes)):
         if i == 0:
             head = ListNode(nodes[i])
@@ -33,7 +45,7 @@ if __name__ == '__main__':
         else:
             head.next = ListNode(nodes[i])
             head = head.next
-    x = Solution().reverseList(dummy)
+    x = Solution().reverseList2(dummy)
     while x:
         print(x.val, end=' -> ')
         x = x.next

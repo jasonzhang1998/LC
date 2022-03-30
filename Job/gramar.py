@@ -16,3 +16,4 @@ def partition(arr, left, right):
 arr = [5, 2, 3, 4, 1, 3, 47, 8, 9]
 
 partition(arr, 0, len(arr) - 1)
+print('hello')

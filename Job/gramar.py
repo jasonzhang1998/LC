@@ -12,8 +12,7 @@ def partition(arr, left, right):
     arr[i], arr[left] = arr[left], arr[i]
     return arr
 
-
-arr = [5, 2, 3, 4, 1, 3, 47, 8, 9]
+arr = [5, 2, 3, 4, 1, 3, 47, 8, 4]
 
 partition(arr, 0, len(arr) - 1)
 print('hello')

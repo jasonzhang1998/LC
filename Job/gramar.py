@@ -1,6 +1,6 @@
 import bisect
 import collections
-
+import sys
 
 def partition(arr, left, right):
     if left >= right:
@@ -27,3 +27,5 @@ k = collections.defaultdict(list)
 index = bisect.bisect_left(nums, 10)
 index1 = bisect.bisect_right(nums, 10)
 print(index, index1)
+
+print(sys.version)

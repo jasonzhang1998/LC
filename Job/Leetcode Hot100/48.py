@@ -20,5 +20,4 @@ class Solution:
 
 if __name__ == '__main__':
     matrix = [[1, 2], [3, 4]]
-    print(Solution().rotate(matrix))
     print(matrix)

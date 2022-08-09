@@ -19,9 +19,13 @@ class Solution:
                     dfs(index + 1, path)
                     path.pop()
 
-        # 交换型回溯，只需index参数，表示此时第index位的元素要和后面所有元素交换
-        # 每次dfs中，index以前的位都固定了，不用动。
+        n = len(nums)
+        ans = []
+        dfs(0, [])
+        return ans
 
+    # 交换型回溯，只需index参数，表示此时第index位的元素要和后面所有元素交换
+    # 每次dfs中，index以前的位都固定了，不用动。
     def permute2(self, nums: List[int]) -> List[List[int]]:
         def dfs(index):
             # 表示前面n位元素都固定了，此时需记录答案并返回
@@ -45,4 +49,4 @@ class Solution:
 
 
 nums = [1, 2, 3]
-print(Solution().permute2(nums))
+print(Solution().permute(nums))

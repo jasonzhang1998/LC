@@ -31,6 +31,8 @@ class Solution:
 
     # DFS遍历，如果存在环，那么dfs必定会遍历到起点
     def canFinish2(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # 返回False 从课程i为起点遍历的路径存在环
+        # 返回True表示没有环
         def dfs(i):
             if flags[i] == -1:
                 return True
@@ -44,6 +46,9 @@ class Solution:
             flags[i] = -1
             return True
 
+        # flag为0表示未被访问过
+        # flag为-1表示被从其它起点开始的dfs遍历过
+        # flag为1表示被本次dfs遍历过
         flags = [0] * numCourses
         adjacency = [[] for _ in range(numCourses)]
 

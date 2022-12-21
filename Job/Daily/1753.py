@@ -27,8 +27,19 @@ class Solution:
             items[2] -= 1
         return score
 
+    # 分析规律的最优解法
+    def maximumScore2(self, a: int, b: int, c: int) -> int:
+        max_c = max(a, b, c)
+        res = a + b + c - max_c
+        # 如果最大的堆的石子数比其它两个堆加起来还要大，
+        # 那么最终答案就是其他两个堆的石子数之和
+        if max_c >= res:
+            return res
+        # 否则首先讲最大堆的石子全部配对完，然后剩下的两个堆两两配对，取一半，向下取整
+        return max_c + (res - max_c) // 2
+
 
 if __name__ == "__main__":
     test = [[2, 4, 6], [4, 4, 6], [1, 8, 8]]
     for item in test:
-        print(Solution().maximumScore(item[0], item[1], item[2]))
+        print(Solution().maximumScore2(item[0], item[1], item[2]))
